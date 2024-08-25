@@ -28,15 +28,18 @@ const menu = document.querySelector('.ri-menu-5-line')
 const menuItem =  document.querySelector('.mobile-nav')
 const close = document.querySelector('.ri-close-large-line')
 
-let flag = false
+let flag =true
 menu.addEventListener('click', ()=>{
-  flag = !flag
+  if(flag){
 
     menuItem.style.display = 'block'
+    flag = !flag
+  }
  
 })
 
 close.addEventListener('click', ()=>{
+
   menuItem.style.display = 'none'
   flag = !flag
 })
@@ -56,18 +59,16 @@ async function domain(){
             channel = 'hindustan%20times'
             break;
         case 'Times of India':
-            channel = 'the%20times%20of%20india'
+            channel = 'toi'
             break;
         case 'Dainik Bhaskar':
-            channel = 'dainik%20bhasker'
+            channel = 'bhaskar_hindi'
             break;
          case 'BBC News':
             channel = 'bbc'
             break; 
 
       }
-      
-      
     
       domainBtn.forEach(elem => {
       
@@ -86,26 +87,6 @@ async function domain(){
 }
 domain()
 
-
-async function livenews() {
-    const api_key = "3e3ff107df3247348a347164ccd53bd1";
-    const url1 = `https://newsapi.org/v2/top-headlines?category=science&apiKey=${api_key}&country=in `;
-
-    const news_data = await fetch(`${url1}`).then(response => response.json());
-    news11.innerText = news_data.articles[0].
-    title;
-    des11.innerText = news_data.articles[0].description;
-    news21.innerText = news_data.articles[1].
-    title;
-    des21.innerText = news_data.articles[1].description;
-    news31.innerText = news_data.articles[2].
-    title;
-    des31.innerText = news_data.articles[2].description;
-    console.log(news_data.articles);
-}
-// pub_496717bedb641029d4be124fcb24ce74be212
-// https://newsdata.io/api/1/news?apikey=pub_496717bedb641029d4be124fcb24ce74be212&q=defence&country=in&language=en&category=domestic 
-// livenews()
 gsap.from("#page1 h1",{
     opacity:0,
     duration:2,
@@ -134,7 +115,7 @@ async function fetchData(channel) {
                       <img class="card-image" src="${elem.image_url}" alt="">
                   </div>
                     <div class="category"> ${elem.category} </div>
-                    <div class="heading"> ${truncatedTitle}
+                    <div class="heading"> ${elem.title}
                    </div>   
                 </div>`
       
@@ -152,29 +133,26 @@ async function TrendingNews() {
   var clutter =''
   try {
 
-    const response = await fetch('https://newsdata.io/api/1/latest?apikey=pub_496717bedb641029d4be124fcb24ce74be212')
+    const response = await fetch('https://newsdata.io/api/1/latest?apikey=pub_496717bedb641029d4be124fcb24ce74be212&language=en')
     const data = await response.json()
     console.log(data.results)
     data.results.forEach((elem)=>{
-      let truncatedTitle = elem.title.length > 50 ? elem.title.slice(0, 50) + '...' : elem.title;
-   clutter+=  `  <div class="card">
-                    <div class="card-image">
-                      <img class="card-image" src="${elem.image_url}" alt="">
+      let truncatedTitle = elem.title
+   clutter+=  ` <div class="card">
+                  <div class="card-image">
+                    <img class="card-image" src="${elem.image_url}" alt="">
                   </div>
-                    <div class="category"> ${elem.category} </div>
-                    <div class="heading"> ${truncatedTitle}
-                   </div>   
+                  <div class="category"> ${elem.category} </div>
+                  <div class="heading"> ${truncatedTitle}
+                  </div>   
                 </div>`
       
     })
     document.querySelector('.news-container').innerHTML = clutter
 
-
   } catch (e) {
     console.log(e)
   }
-
-
 }
 
 TrendingNews()
