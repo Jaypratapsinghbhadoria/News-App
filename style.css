@@ -10,8 +10,8 @@ html,body{
     font-family: arial;
     overflow-x: hidden;
     background-color: black;
+    /* scroll-behavior: smooth; */
 }
-
 
 #nav{
     width: 100%;
@@ -31,7 +31,7 @@ html,body{
     list-style: none;
     margin: 5px;
 }
-#nav-items li{
+#nav-items a{
  
     margin-right: 2vw;
 }
@@ -46,7 +46,7 @@ html,body{
 } 
 
 #nav h2:hover{
-    scale: 1.2;
+    color: rgb(233, 245, 11);
 }
 
 #nav #nav-items{
@@ -55,13 +55,15 @@ html,body{
     align-items: center;
 }
 
-#nav #nav-items div{
+#nav #nav-items a{
     padding-right: 50px;
     cursor: pointer;
     transition: 0.5s;
+    color: white;
+    text-decoration: none;
 }
 
-#nav #nav-items div:hover{
+#nav #nav-items a:hover{
     color: gray;
 }
 
@@ -79,19 +81,27 @@ html,body{
 
 }
 .ri-close-large-line{
-    font-size: 32px;
+    font-size: 4vw;
     cursor: pointer;
     transition: 0.5s;
     position: relative;
-    top: 4vh;
- left: 80vw;
+    left: 91vw;
+    top: 5vh;
  /* text-align: center; */
 }
 
+#lstitem{
+    display: flex;
+    flex-direction: column;
+    font-size: 3vw;
+    gap: 30px;
+    margin-top: 50px;
+    margin-left: 30px;
+}
 
 #page1{
     width: 100%;
-    max-height: 100vh;
+    min-height: 100vh;
     padding: 0 0.7%;
     position: relative;
 }
@@ -99,7 +109,7 @@ html,body{
 #page1 #scroller{
     width: 100%;
     margin-top: 100px;
-    background-color: rgb(193, 255, 127);
+    background-color: rgb(233, 245, 11);
     display: flex;
     padding: 1.2vw 0;
 }
@@ -120,7 +130,7 @@ html,body{
 
 #page1 h1{
     text-transform: uppercase;
-    font-size: 34em;
+    font-size: 37vw;
     letter-spacing: -54px;
     color: white;
     position: absolute;
@@ -137,127 +147,21 @@ html,body{
     position: relative;
 }
 
-#page2 h1{
-    padding: 30px;
-    color: transparent;
-    font-size: 40px;
-    letter-spacing: 10px;
-    font-weight: 900;
-    -webkit-text-stroke: 1.6px white; 
-}
-
-#inter-news {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    padding: 40px;
-}
-
-#inter-news div{
-    height: 45vh;
-    width: 33vw;
-    background-color: rgb(54, 53, 55);
-    position: relative;
-    text-align: center;
-    border-radius: 15px;
-    margin-top: 20px;
-    overflow: hidden;
-    color: white;
-}
-
-#inter-news h2{
-    padding: 25px;
-    font-size: 40px;
-}
-
-#inter-news .title{
-    padding: 0 20px;
-    font-weight: 600;
-    color: black;
-    font-size: 17px;
-}
-
-#inter-news .description{
-    padding: 20px;
-    font-size: 15px;
-    line-height: 1.2;
-}
-
-#page3{
-    width: 100%;
-    min-height: 100vh;
-    display: inline-block;
-    justify-content: center;
-    background-color: #212121;
-    position: relative;
-}
-
-#page3 h1{
-    padding: 30px;
-    color: transparent;
-    font-size: 40px;
-    letter-spacing: 10px;
-    font-weight: 900;
-    -webkit-text-stroke: 1.6px white; 
-}
-
-#defence-news {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    padding: 40px;
-}
-
-#defence-news div{
-    height: 45vh;
-    width: 33vw;
-    background-color: rgb(54, 53, 55);
-    position: relative;
-    text-align: center;
-    border-radius: 15px;
-    margin-top: 20px;
-    overflow: hidden;
-    color: white;
-}
-
-#defence-news h2{
-    padding: 25px;
-    font-size: 40px;
-}
-/*
-#defence-news .title{
-    padding: 0 20px;
-    font-weight: 600;
-    color: black;
-    font-size: 17px;
-}
-
-#defence-news .description{
-    padding: 20px;
-    font-size: 15px;
-    line-height: 1.2;
-} */
-
 #page4{
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: relative;
+    /* position: relative; */
+    position: absolute;
     background-color: black;
     color: white;
 }
 #footer{
     width: 94%;
-    height: 70%;
+    height: 100%;
     /* background-color: red; */
     top: 8%;
     position: absolute;
@@ -272,7 +176,7 @@ html,body{
 }
 
 #footer h1{
-    font-size: 70px;
+    font-size: 10vw;
     font-weight: 800;
 }
 
@@ -305,10 +209,11 @@ html,body{
     text-align: center;
 }
 .domain-btn:hover{
-    background-color:black;
+    background-color:#212121;
 }
 .active{
-    background-color:black;
+    color: rgb(233, 245, 11);
+    background-color:#212121;
 }
 .card{
     width: 23vw;
@@ -318,7 +223,7 @@ html,body{
     border-radius: 10px;
     padding: 15px;
     /* position: absolute; */
-
+    overflow: hidden;
 }
 
 .news-container {
@@ -334,8 +239,8 @@ html,body{
 }
 
 .card-image{
-    width: 20vw;
-    height:17vw;
+    width: 100%;
+    height:30vh;
     /* background-color: white; */
     border-radius: 10px;
    
@@ -346,14 +251,18 @@ html,body{
 }
 .category{
     font-size: 15px;
-    color: rgb(97, 90, 204);
+    color: rgb(233, 245, 11);
     font-weight: 600;
-    margin-top: 10px;
+    margin: 15px 0;
 }
 .heading{
   color: blanchedalmond;
-  margin-top: 5px;
+  margin-top: 10px;
   
+}
+#main{
+    min-height: 420vh;
+
 }
 
 .btn-shine{
@@ -382,6 +291,8 @@ html,body{
    { background-position: 180px}
 }
 @media screen and (max-width: 80rem) {
+
+    
     .news-container {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -392,7 +303,7 @@ html,body{
     }
     .card{
         width: 45vw;
-        height: 30vh;
+        height: 50vh;
         background-color: rgb(54, 53, 55);
         margin: 10px;
         border-radius: 10px;
@@ -401,8 +312,8 @@ html,body{
     
     }
     .card-image{
-        width: 37vw;
-        height:25vw;
+        width: 100%;
+        height:30vh;
         /* background-color: white; */
         border-radius: 10px;
        
@@ -412,7 +323,7 @@ html,body{
     
     }
  
-    #nav-items li{
+    #nav-items .start{
      
         display: none;
     }
@@ -422,19 +333,22 @@ html,body{
         display: block;
         margin-left: 20vw ;
     }
+    .mobile-nav{
+        display: none;
+        font-size: 1.2em;
+    }
     #page1 h1{
-        text-transform: uppercase;
-        font-size:9em;
-        letter-spacing: -12px;
-        color: white;
-        position: absolute;
-        top: 1%;
+        display: none;
     
     }
     #page1{
         width: 100%;
-    height: 20vh; 
+        min-height: 1vh;
         padding: 0 0.7%;
+        position: relative;
+        max-height: 10%;
+    }
+    #page2{
         position: relative;
     }
   }
